@@ -22,14 +22,22 @@ export function Header({ title }: { title?: string }) {
   }, [isDark]);
 
   return (
-    <header className="sticky top-0 z-30 flex items-center justify-between px-6 py-4 bg-background/80 backdrop-blur-md border-b border-border/40">
-      <div className="flex-1 lg:pl-0 pl-12">
-        <h1 className="text-2xl font-bold font-display text-foreground hidden sm:block">
-          {title || t("dashboard")}
-        </h1>
+    <header className="sticky top-0 z-30 flex items-center justify-between px-8 py-6 bg-background/40 backdrop-blur-xl border-b border-white/5">
+      <div className="flex items-center gap-4">
+        <div className="w-12 h-12 rounded-2xl bg-primary flex items-center justify-center text-primary-foreground font-bold font-display text-2xl shadow-xl shadow-primary/20 rotate-3 group-hover:rotate-0 transition-transform">
+          P
+        </div>
+        <div className="flex flex-col">
+          <span className="text-2xl font-bold font-display tracking-tighter text-foreground">
+            PIPFLOW
+          </span>
+          <span className="text-[10px] uppercase tracking-[0.2em] text-primary font-bold opacity-70">
+            Market Analysis Platform
+          </span>
+        </div>
       </div>
 
-      <div className="flex items-center gap-2 sm:gap-4">
+      <div className="flex items-center gap-3 sm:gap-6">
         <Button variant="ghost" size="icon" className="text-muted-foreground hover:text-primary rounded-full relative">
           <Bell className="w-5 h-5" />
           <span className="absolute top-2.5 right-2.5 w-2 h-2 bg-destructive rounded-full border-2 border-background"></span>

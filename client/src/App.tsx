@@ -28,14 +28,12 @@ function Layout() {
   useLanguageInit();
 
   return (
-    <div className="min-h-screen bg-background text-foreground flex overflow-hidden selection:bg-primary/20 bg-grid-pattern">
-      <Sidebar />
-      <main className="flex-1 lg:ltr:ml-72 lg:rtl:mr-72 flex flex-col min-h-screen transition-all duration-300">
-        <Header />
-        <div className="flex-1 overflow-y-auto p-4 md:p-8">
-          <div className="max-w-7xl mx-auto w-full">
-            <Router />
-          </div>
+    <div className="min-h-screen bg-background text-foreground flex flex-col selection:bg-primary/20">
+      <div className="bg-grid-pattern" />
+      <Header />
+      <main className="flex-1 overflow-x-hidden p-6 md:p-12 lg:p-20 transition-all duration-300">
+        <div className="max-w-7xl mx-auto w-full">
+          <Router />
         </div>
       </main>
     </div>
