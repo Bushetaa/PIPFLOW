@@ -35,24 +35,42 @@ const translations: Record<string, Record<Language, string>> = {
   "no_data": { en: "No data available", ar: "لا توجد بيانات متاحة" },
   "error": { en: "Something went wrong", ar: "حدث خطأ ما" },
   "welcome": { en: "Welcome back", ar: "مرحباً بعودتك" },
-  "pipflow": { en: "PIPFLOW", ar: "بيب فلو" },
+  "pipflow": { en: "PIPFLOW", ar: "PIPFLOW" },
   "summary": { en: "Summary", ar: "ملخص" },
+  "status": { en: "Status", ar: "الحالة" },
   "cancel": { en: "Cancel", ar: "إلغاء" },
   "create": { en: "Create", ar: "إنشاء" },
   "title_en": { en: "Title (English)", ar: "العنوان (إنجليزي)" },
   "title_ar": { en: "Title (Arabic)", ar: "العنوان (عربي)" },
   "summary_en": { en: "Summary (English)", ar: "الملخص (إنجليزي)" },
   "summary_ar": { en: "Summary (Arabic)", ar: "الملخص (عربي)" },
+  "platform_tagline": { en: "Market Analysis Platform", ar: "منصة تحليل السوق" },
+  "market_insights": { en: "Professional real-time market insights and automated technical analysis for top financial pairs.", ar: "رؤى احترافية لحظية للسوق وتحليل فني آلي لأهم الأزواج المالية." },
+  "strategy": { en: "Strategy", ar: "استراتيجية" },
+  "not_found_title": { en: "404 Page Not Found", ar: "404 الصفحة غير موجودة" },
+  "not_found_hint": { en: "Did you forget to add the page to the router?", ar: "هل نسيت إضافة الصفحة إلى نظام التوجيه؟" },
+  "english_content": { en: "English Content", ar: "المحتوى الإنجليزي" },
+  "arabic_content": { en: "Arabic Content", ar: "المحتوى العربي" },
+  "select_timeframe": { en: "Select timeframe", ar: "اختر الإطار الزمني" },
+  "select_sentiment": { en: "Select sentiment", ar: "اختر الحالة" },
+  "success": { en: "Success", ar: "نجاح" },
+  "report_created": { en: "Report created successfully", ar: "تم إنشاء التقرير بنجاح" },
+  "discussion": { en: "Discussion", ar: "المناقشة" },
+  "decision": { en: "Decision", ar: "القرار" },
+  "discussion_decision": { en: "Discussion & Decision", ar: "المناقشة والقرار" },
+  "no_discussion_available": { en: "No discussion available for this report.", ar: "لا توجد مناقشة متاحة لهذا التقرير." },
+  "decision_placeholder": { en: "Strategic decision and action plan will be displayed here based on the analysis.", ar: "سيتم عرض القرار الاستراتيجي وخطة العمل هنا بناءً على التحليل." },
+  "home": { en: "Home", ar: "الصفحة الرئيسية" },
+  "back": { en: "Back", ar: "رجوع" },
+  "back_to_home": { en: "Back to Home", ar: "الرجوع للصفحة الرئيسية" },
 };
 
 export const useLanguage = create<LanguageState>((set, get) => ({
   language: 'en',
   direction: 'ltr',
   setLanguage: (lang) => {
-    const direction = lang === 'ar' ? 'rtl' : 'ltr';
-    document.documentElement.dir = direction;
     document.documentElement.lang = lang;
-    set({ language: lang, direction });
+    set({ language: lang, direction: 'ltr' });
   },
   t: (key) => {
     const lang = get().language;

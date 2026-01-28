@@ -1,5 +1,5 @@
 import { Link, useLocation } from "wouter";
-import { LayoutDashboard, BarChart2, FileText, Settings, LogOut, Menu, X } from "lucide-react";
+import { LayoutDashboard, BarChart2, FileText, Settings, Menu, X } from "lucide-react";
 import { useLanguage } from "@/hooks/use-language";
 import { cn } from "@/lib/utils";
 import { useState } from "react";
@@ -54,26 +54,21 @@ export function Sidebar() {
         })}
       </div>
 
-      <div className="p-4 mt-auto border-t border-border/50">
-        <div className="flex items-center gap-3 px-4 py-3 rounded-xl text-muted-foreground hover:bg-destructive/10 hover:text-destructive cursor-pointer transition-colors">
-          <LogOut className="w-5 h-5" />
-          <span className="font-medium">{t("cancel")}</span> {/* Using cancel as logout placeholder */}
-        </div>
-      </div>
+      
     </div>
   );
 
   return (
     <>
       {/* Mobile Trigger */}
-      <div className="lg:hidden fixed top-4 left-4 z-50 ltr:left-4 rtl:right-4 rtl:left-auto">
+      <div className="lg:hidden fixed top-4 left-4 z-50">
         <Sheet open={isOpen} onOpenChange={setIsOpen}>
           <SheetTrigger asChild>
             <Button variant="outline" size="icon" className="shadow-lg border-primary/10">
               <Menu className="w-5 h-5 text-primary" />
             </Button>
           </SheetTrigger>
-          <SheetContent side={language === 'ar' ? 'right' : 'left'} className="p-0 border-r-0 w-72">
+          <SheetContent side={'left'} className="p-0 border-r-0 w-72">
             <NavContent />
           </SheetContent>
         </Sheet>

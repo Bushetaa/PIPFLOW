@@ -1,9 +1,12 @@
 import { useLanguage } from "@/hooks/use-language";
 import { useReports } from "@/hooks/use-reports";
-import { Loader2 } from "lucide-react";
+import { Loader2, ArrowLeft } from "lucide-react";
 import { ReportModal } from "@/components/ReportModal";
 import { format } from "date-fns";
+import { enUS } from "date-fns/locale/en-US";
+import { ar } from "date-fns/locale/ar";
 import { cn } from "@/lib/utils";
+import { Link } from "wouter";
 
 export default function Reports() {
   const { t, language } = useLanguage();
@@ -14,6 +17,13 @@ export default function Reports() {
       <div className="flex justify-between items-center">
         <h2 className="text-2xl font-display font-bold">{t("reports")}</h2>
         <ReportModal />
+      </div>
+      
+      <div>
+        <Link href="/" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors">
+          <ArrowLeft className="w-4 h-4" />
+          {t("back_to_home")}
+        </Link>
       </div>
 
       {isLoading ? (
@@ -50,7 +60,7 @@ export default function Reports() {
 
                <div className="flex justify-between items-center pt-4 border-t border-border/50 text-xs text-muted-foreground mt-auto">
                  <span>{t("confidence")}: <span className="font-bold text-foreground">{report.confidence}%</span></span>
-                 <span>{report.createdAt ? format(new Date(report.createdAt), 'PP') : ''}</span>
+                 <span>{report.createdAt ? format(new Date(report.createdAt), 'PP', { locale: language === 'ar' ? ar : enUS }) : ''}</span>
                </div>
             </div>
           ))}

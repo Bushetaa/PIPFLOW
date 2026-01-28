@@ -56,12 +56,12 @@ export function ReportModal() {
   const onSubmit = (data: InsertAnalysisReport) => {
     createReport.mutate(data, {
       onSuccess: () => {
-        toast({ title: "Success", description: "Report created successfully" });
+        toast({ title: t("success"), description: t("report_created") });
         setOpen(false);
         form.reset();
       },
       onError: (err) => {
-        toast({ title: "Error", description: err.message, variant: "destructive" });
+        toast({ title: t("error"), description: err.message, variant: "destructive" });
       },
     });
   };
@@ -105,7 +105,7 @@ export function ReportModal() {
                     <Select onValueChange={field.onChange} defaultValue={field.value}>
                       <FormControl>
                         <SelectTrigger>
-                          <SelectValue placeholder="Select timeframe" />
+                          <SelectValue placeholder={t("select_timeframe")} />
                         </SelectTrigger>
                       </FormControl>
                       <SelectContent>
@@ -130,7 +130,7 @@ export function ReportModal() {
                     <Select onValueChange={field.onChange} defaultValue={field.value}>
                       <FormControl>
                         <SelectTrigger>
-                          <SelectValue placeholder="Select sentiment" />
+                          <SelectValue placeholder={t("select_sentiment")} />
                         </SelectTrigger>
                       </FormControl>
                       <SelectContent>
@@ -166,7 +166,7 @@ export function ReportModal() {
             </div>
 
             <div className="space-y-4 border rounded-xl p-4 bg-muted/20">
-              <h4 className="font-medium text-sm text-muted-foreground uppercase tracking-wider">English Content</h4>
+              <h4 className="font-medium text-sm text-muted-foreground uppercase tracking-wider">{t("english_content")}</h4>
               <FormField
                 control={form.control}
                 name="titleEn"
@@ -196,7 +196,7 @@ export function ReportModal() {
             </div>
 
             <div className="space-y-4 border rounded-xl p-4 bg-muted/20" dir="rtl">
-              <h4 className="font-medium text-sm text-muted-foreground uppercase tracking-wider text-left" dir="ltr">Arabic Content</h4>
+              <h4 className="font-medium text-sm text-muted-foreground uppercase tracking-wider text-left" dir="ltr">{t("arabic_content")}</h4>
               <FormField
                 control={form.control}
                 name="titleAr"
